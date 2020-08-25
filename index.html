@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="./IMG/images.jpg">
+    <title>Calculadora</title>
+</head>
+<body style="background-image: url(IMG/images.jpg);">
+    
+    <h1 style="color: white; text-align: center;">“Conviértete en la persona que atraiga los resultados que buscas.“</h1>
+    <div style="padding-top: 5%;">
+    <table style="width: 60%; text-align: center; margin: auto; background-color: rgb(17, 90, 119);">
+        <div style="width: 60%; margin: auto; text-align: center; border: ridge; ">
+        <span id="operar" style="color: white;"></span>
+        </div>
+        <div style="width: 100%;">
+        <tr>
+            <td ><button style="width: 90%; margin: auto;" name="AC" id="AC" onclick="AC()">AC</button></td>
+            <td><button style="width: 100%;"  id="siete" onclick="numero(7)">7</button></td>
+            <td><button style="width: 100%;"  id="ocho" onclick="numero(8)">8</button></td>
+            <td><button style="width: 100%;"  id="nueve" onclick="numero(9)">9</button></td>
+            <td><button style="width: 90%;"  id="porcentaje" onclick="operador('%')">%</button></td>
+            <td><button style="width: 80%;"  id="pesos" onclick="pesos('$')">$</button></td>
+        </tr>
+        </div>
+        <tr>
+            <td><button style="width: 90%; background-color: red;"  id="masomenos" onclick="OFF()">OFF</button></td>
+            <td><button style="width: 100%;"  id="cuatro" onclick="numero(4)">4</button></td>
+            <td><button style="width: 100%;"  id="cinco" onclick="numero(5)">5</button></td>
+            <td><button style="width: 100%;"  id="seis" onclick="numero(6)">6</button></td>
+            <td><button style="width: 90%;"  id="multiplicar" onclick="operador('*')">X</button></td>
+            <td><button style="width: 80%;"  id="dividir" onclick="operador('/')">/</button></td>
+        </tr>
+        <tr>
+            <td><button style="width: 90%; background-color: green;"  id="ON" onclick="on()">ON</button></td>
+            <td><button style="width: 100%;"  id="1" onclick="numero(1)">1</button></td>
+            <td><button style="width: 100%;"  id="2" onclick="numero(2)">2</button></td>
+            <td><button style="width: 100%;"  id="3" onclick="numero(3)">3</button></td>
+            <td><button style="width: 90%;"  id="M-" onclick="M('m-')">M-</button></td>
+            <td><button style="width: 80%;"  id="-" onclick="operador('-')">-</button></td>
+        </tr>
+        <tr>
+            <td><button style="width: 90%; background-color: orange;"  id="reset" onclick="reset()">C</button></td>
+            <td><button style="width: 100%;" onclick="numero(0)"  id="cero">0</button></td>
+            <td><button style="width: 100%;" onclick="numero(000)"  id="tresceros">000</button></td>
+            <td><button style="width: 100%;" onclick="punto('.')"  id="punto">.</button></td>
+            <td><button style="width: 90%;" onclick="operador('+')"  id="mas">+</button></td>
+            <td><button style="width: 80%;" onclick="igual('=')"  id="igual">=</button></td>
+        </tr>
+    </table>
+    </div>
+</body>
+
+<script>
+    var n1
+    var n2
+    var op
+function numero(n){
+    var operar= document.getElementById("operar");
+    operar.textContent= operar.textContent + n;
+}
+function operador(operador) {
+    var operar= document.getElementById("operar");
+    n1 = operar.textContent;
+    operar.textContent= operar.textContent + operador;
+    op = operador; 
+}
+function igual(){
+    var operar= document.getElementById("operar");
+    var noperar= operar.textContent;
+    var datos= noperar.split(op);
+    n2 = datos[1];
+    solucion();
+}
+function solucion(){
+    var operar= document.getElementById("operar");
+    if (op=="+"){
+        operar.textContent=Number(n1)+Number(n2);  
+    }
+    if (op=="-"){
+        operar.textContent=Number(n1)-Number(n2);  
+    }
+    if (op=="*"){
+        operar.textContent=Number(n1)*Number(n2);  
+    }
+    if (op=="/"){
+        operar.textContent=Number(n1)/Number(n2);  
+    }
+    
+}
+function reset(){
+    var operar= document.getElementById("operar");
+    operar.textContent="";
+    n1="";
+    n2="";
+    op="";
+}
+function AC(){
+    var operar= document.getElementById("operar");
+    operar.textContent="";
+    n1="";
+    n2="";
+    op="";
+}
+
+function on(){
+    var operar= document.getElementById("operar");
+    operar.textContent="";
+    n1="";
+    n2="";
+    op="";
+}
+
+function OFF(){
+    var operar= document.getElementById("operar");
+    operar.textContent="";
+    n1="";
+    n2="";
+    op="";
+}
+
+    
+</script>
+</html>
